@@ -152,12 +152,12 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
             </div>
             <div>
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
-                {currentLang === 'fr' ? '🚀 Découvrez plus de 53+ projets publics sur GitHub !' : '🚀 Explore 53+ Public Repositories on GitHub!'}
+                {currentLang === 'fr' ? '🚀 Plus de 53+ Projets & Dépôts Publics sur GitHub' : '🚀 Over 53+ Public Repositories Available on GitHub'}
               </h4>
               <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)' }}>
                 {currentLang === 'fr'
-                  ? 'Mohamed El Asri possède plus de 53 dépôts publics (Java Spring Boot, Microservices, PHP / Laravel, DevOps, CI/CD).'
-                  : 'Mohamed El Asri maintains 53+ public repositories featuring Java Spring Boot, Microservices, PHP / Laravel, and DevOps pipelines.'}
+                  ? 'Explorez l\'intégralité du code source : microservices Java Spring Boot, applications PHP / Laravel, tests TDD (JUnit, Mockito) et pipelines DevOps CI/CD.'
+                  : 'Explore full open-source repositories: Java Spring Boot microservices, PHP / Laravel applications, TDD testing (JUnit, Mockito), and DevOps CI/CD pipelines.'}
               </p>
             </div>
           </div>

@@ -9,6 +9,7 @@ import { ResumeViewer } from '../apps/ResumeViewer';
 import { SettingsApp } from '../apps/SettingsApp';
 import { ContactApp } from '../apps/ContactApp';
 import type { Language } from '../i18n/translations';
+import { TRANSLATIONS } from '../i18n/translations';
 import {
   Folder,
   User,
@@ -62,6 +63,9 @@ export const Desktop: React.FC<DesktopProps> = ({
   onToggleLang,
 }) => {
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number } | null>(null);
+
+  const tDesktop = TRANSLATIONS[currentLang].desktop;
+  const tApps = TRANSLATIONS[currentLang].apps;
 
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -123,62 +127,71 @@ export const Desktop: React.FC<DesktopProps> = ({
           width: 'fit-content',
         }}
       >
-        {APPS.filter((a) => a.showOnDesktop).map((app) => (
-          <div
-            key={app.id}
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpenApp(app.id);
-            }}
-            style={{
-              width: '90px',
-              height: '96px',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              cursor: 'pointer',
-              padding: '6px',
-              transition: 'background 0.15s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-          >
+        {APPS.filter((a) => a.showOnDesktop).map((app) => {
+          const locApp = tApps[app.id as keyof typeof tApps];
+          return (
             <div
-              style={{
-                filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))',
-                transition: 'transform 0.15s ease',
+              key={app.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenApp(app.id);
               }}
+              style={{
+                width: '90px',
+                height: '96px',
+                borderRadius: 'var(--radius-md)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                cursor: 'pointer',
+                padding: '6px',
+                transition: 'background 0.15s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
             >
-              {getDesktopIcon(app.iconName)}
+              <div
+                style={{
+                  filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))',
+                  transition: 'transform 0.15s ease',
+                }}
+              >
+                {getDesktopIcon(app.iconName)}
+              </div>
+              <span
+                style={{
+                  fontSize: '0.75rem',
+                  color: '#ffffff',
+                  fontWeight: 500,
+                  textAlign: 'center',
+                  textShadow: '0 1px 4px rgba(0, 0, 0, 0.9)',
+                  lineClamp: 1,
+                  overflow: 'hidden',
+                }}
+              >
+                {locApp?.shortName || app.shortName}
+              </span>
             </div>
-            <span
-              style={{
-                fontSize: '0.75rem',
-                color: '#ffffff',
-                fontWeight: 500,
-                textAlign: 'center',
-                textShadow: '0 1px 4px rgba(0, 0, 0, 0.9)',
-                lineClamp: 1,
-                overflow: 'hidden',
-              }}
-            >
-              {app.shortName}
-            </span>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {APPS.map((app) => {
         const win = windows[app.id];
         if (!win) return null;
 
+        const locApp = tApps[app.id as keyof typeof tApps];
+        const localizedWinState = {
+          ...win,
+          title: locApp?.title || win.title,
+        };
+
         return (
           <WindowFrame
             key={app.id}
-            windowState={win}
+            windowState={localizedWinState}
             onClose={() => onCloseApp(app.id)}
             onMinimize={() => onMinimizeApp(app.id)}
             onMaximize={() => onMaximizeApp(app.id)}
@@ -196,7 +209,7 @@ export const Desktop: React.FC<DesktopProps> = ({
             position: 'fixed',
             top: contextMenu.y,
             left: contextMenu.x,
-            width: '200px',
+            width: '210px',
             borderRadius: 'var(--radius-md)',
             padding: '6px 0',
             zIndex: 99999,
@@ -207,26 +220,26 @@ export const Desktop: React.FC<DesktopProps> = ({
             onClick={() => { onOpenApp('settings'); setContextMenu(null); }}
             style={{ width: '100%', padding: '8px 14px', background: 'none', border: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.8rem', textAlign: 'left' }}
           >
-            <Monitor size={14} /> Change Wallpaper
+            <Monitor size={14} /> {tDesktop.changeWallpaper}
           </button>
           <button
             onClick={() => { onOpenApp('terminal'); setContextMenu(null); }}
             style={{ width: '100%', padding: '8px 14px', background: 'none', border: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.8rem', textAlign: 'left' }}
           >
-            <Terminal size={14} /> Open Terminal CLI
+            <Terminal size={14} /> {tDesktop.openTerminal}
           </button>
           <button
             onClick={() => { onOpenApp('projects'); setContextMenu(null); }}
             style={{ width: '100%', padding: '8px 14px', background: 'none', border: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.8rem', textAlign: 'left' }}
           >
-            <Folder size={14} /> View Projects
+            <Folder size={14} /> {tDesktop.viewProjects}
           </button>
           <div style={{ height: '1px', background: 'var(--border-glass)', margin: '6px 0' }} />
           <button
             onClick={() => { onResetLayout(); setContextMenu(null); }}
             style={{ width: '100%', padding: '8px 14px', background: 'none', border: 'none', color: '#f87171', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.8rem', textAlign: 'left' }}
           >
-            <RotateCcw size={14} /> Reset Windows Layout
+            <RotateCcw size={14} /> {tDesktop.resetLayout}
           </button>
         </div>
       )}

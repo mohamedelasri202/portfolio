@@ -113,7 +113,7 @@ export const PROJECTS: ProjectItem[] = [
     title: 'EcoSim 2.0 — Dynamic Route & Ecological Optimizer',
     category: 'Full Stack',
     shortDescription: '⭐ FEATURED PROJECT ⭐ Web mapping app calculating travel costs and environmental footprint via Spring AI, Angular & Google Maps API with CI/CD GitHub Actions.',
-    fullDescription: 'EcoSim 2.0 is a comprehensive web mapping application designed to calculate travel costs and evaluate the environmental footprint of specific routes. Utilizes Java, Spring AI, and Angular to intelligently process route data and generate accurate ecological simulations. Features Docker containers, JUnit/Mockito testing, and automated GitHub Actions pipelines.',
+    fullDescription: 'EcoSim 2.0 is a comprehensive web mapping application designed to calculate travel costs and evaluate the environmental footprint of specific routes. Utilizes Java, Spring AI, and Angular on the backend to intelligently process route data and generate accurate ecological simulations. Features Docker containers, JUnit/Mockito testing, and automated GitHub Actions pipelines.',
     techStack: ['Java', 'Spring Boot', 'Spring AI', 'Angular', 'PostgreSQL', 'Google Maps API', 'JUnit', 'Mockito', 'Docker', 'GitHub Actions'],
     image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop',
     demoUrl: 'https://github.com/mohamedelasri202/delivery-optimizer-springbootV2',
@@ -273,8 +273,16 @@ export const EXPERIENCES: ExperienceItem[] = [
 
 export const WALLPAPERS: Wallpaper[] = [
   {
+    id: 'solid-charcoal',
+    name: 'Solid Dark Charcoal (Default)',
+    previewUrl: '#121212',
+    style: {
+      backgroundColor: '#121212',
+    },
+  },
+  {
     id: 'sleek-black',
-    name: 'Sleek OLED Black (Default)',
+    name: 'Sleek OLED Black',
     previewUrl: '#02040a',
     style: {
       backgroundColor: '#02040a',
@@ -294,14 +302,6 @@ export const WALLPAPERS: Wallpaper[] = [
     previewUrl: '#0b1329',
     style: {
       backgroundColor: '#0b1329',
-    },
-  },
-  {
-    id: 'dark-charcoal',
-    name: 'Solid Dark Charcoal',
-    previewUrl: '#121212',
-    style: {
-      backgroundColor: '#121212',
     },
   },
 ];

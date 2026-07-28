@@ -1,6 +1,8 @@
 import React from 'react';
 import type { AppId, WindowState } from '../types/os';
 import { APPS } from '../data/portfolioData';
+import type { Language } from '../i18n/translations';
+import { TRANSLATIONS } from '../i18n/translations';
 import {
   Folder,
   User,
@@ -14,6 +16,7 @@ import {
 interface DockProps {
   windows: Record<AppId, WindowState>;
   activeAppId: AppId | null;
+  currentLang?: Language;
   onAppClick: (id: AppId) => void;
 }
 
@@ -29,7 +32,9 @@ const getAppIcon = (iconName: string, size = 22) => {
   }
 };
 
-export const Dock: React.FC<DockProps> = ({ windows, activeAppId, onAppClick }) => {
+export const Dock: React.FC<DockProps> = ({ windows, activeAppId, currentLang = 'fr', onAppClick }) => {
+  const tApps = TRANSLATIONS[currentLang].apps;
+
   return (
     <div
       style={{
@@ -39,7 +44,7 @@ export const Dock: React.FC<DockProps> = ({ windows, activeAppId, onAppClick }) 
         transform: 'translateX(-50%)',
         height: '60px',
         padding: '0 16px',
-        background: 'rgba(15, 23, 42, 0.75)',
+        background: 'rgba(15, 23, 42, 0.85)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         border: '1px solid var(--border-glass-bright)',
@@ -55,6 +60,7 @@ export const Dock: React.FC<DockProps> = ({ windows, activeAppId, onAppClick }) 
         const win = windows[app.id];
         const isOpen = win?.isOpen;
         const isActive = activeAppId === app.id && isOpen && !win?.isMinimized;
+        const locApp = tApps[app.id as keyof typeof tApps];
 
         return (
           <div
@@ -93,7 +99,7 @@ export const Dock: React.FC<DockProps> = ({ windows, activeAppId, onAppClick }) 
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
               }}
-              title={app.shortName}
+              title={locApp?.shortName || app.shortName}
             >
               {getAppIcon(app.iconName)}
             </button>

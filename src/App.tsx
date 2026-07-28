@@ -155,6 +155,7 @@ export function App() {
       <Dock
         windows={windows}
         activeAppId={activeAppId}
+        currentLang={currentLang}
         onAppClick={handleDockAppClick}
       />
     </div>

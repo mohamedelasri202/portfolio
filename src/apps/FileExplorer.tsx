@@ -74,12 +74,12 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', background: '#0b0f19', color: 'var(--text-primary)', height: '100%' }}>
+    <div style={{ flex: 1, display: 'flex', background: '#121212', color: 'var(--text-primary)', height: '100%' }}>
       {/* Category Sidebar */}
       <div
         style={{
           width: '210px',
-          background: 'rgba(15, 23, 42, 0.6)',
+          background: 'rgba(24, 24, 27, 0.8)',
           borderRight: '1px solid var(--border-glass)',
           padding: '16px 12px',
           display: 'flex',
@@ -112,7 +112,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
                 transition: 'all 0.15s ease',
               }}
             >
-              <Folder size={15} color={selectedCategory === cat.id ? '#38bdf8' : '#64748b'} />
+              <Folder size={15} color={selectedCategory === cat.id ? '#38bdf8' : '#71717a'} />
               <span>{cat.label}</span>
             </button>
           ))}
@@ -130,8 +130,64 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
 
       {/* Main Content Area */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '16px 20px', overflowY: 'auto' }}>
-        {/* Search & Filter Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', gap: '16px' }}>
+        {/* TOP PROMINENT BANNER: 53+ Public GitHub Repositories */}
+        <div
+          className="glass-card"
+          style={{
+            marginBottom: '16px',
+            padding: '14px 18px',
+            border: '1px solid var(--border-glass-bright)',
+            borderRadius: 'var(--radius-md)',
+            background: 'rgba(28, 28, 32, 0.95)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <GitBranch size={20} color="#38bdf8" />
+            </div>
+            <div>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
+                {currentLang === 'fr' ? '🚀 Découvrez plus de 53+ projets publics sur GitHub !' : '🚀 Explore 53+ Public Repositories on GitHub!'}
+              </h4>
+              <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)' }}>
+                {currentLang === 'fr'
+                  ? 'Mohamed El Asri possède plus de 53 dépôts publics (Java Spring Boot, Microservices, PHP / Laravel, DevOps, CI/CD).'
+                  : 'Mohamed El Asri maintains 53+ public repositories featuring Java Spring Boot, Microservices, PHP / Laravel, and DevOps pipelines.'}
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={DEVELOPER_PROFILE.github}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              padding: '8px 16px',
+              background: 'var(--accent-blue)',
+              color: '#090d16',
+              borderRadius: 'var(--radius-md)',
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: '0.8rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              whiteSpace: 'nowrap',
+              boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)',
+            }}
+          >
+            <span>{currentLang === 'fr' ? 'Voir tout sur GitHub' : 'View All on GitHub'}</span>
+            <ExternalLink size={14} />
+          </a>
+        </div>
+
+        {/* Search & Filter Header Bar */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', gap: '16px' }}>
           <div style={{ position: 'relative', flex: 1, maxWidth: '360px' }}>
             <Search size={15} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
             <input
@@ -142,7 +198,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
               style={{
                 width: '100%',
                 padding: '8px 12px 8px 36px',
-                background: 'rgba(30, 41, 59, 0.6)',
+                background: 'rgba(28, 28, 32, 0.8)',
                 border: '1px solid var(--border-glass)',
                 borderRadius: 'var(--radius-md)',
                 color: 'var(--text-primary)',
@@ -159,7 +215,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
         </div>
 
         {/* Project Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', paddingBottom: '16px' }}>
           {filteredProjects.map((rawProj) => {
             const project = getLocalizedProject(rawProj);
             return (
@@ -187,7 +243,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
                     border: '1px solid var(--border-glass)',
                   }}
                 >
-                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(8px)', padding: '2px 8px', borderRadius: '10px', fontSize: '0.68rem', fontWeight: 600, color: 'var(--accent-blue)' }}>
+                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: 'rgba(18, 18, 18, 0.88)', backdropFilter: 'blur(8px)', padding: '2px 8px', borderRadius: '10px', fontSize: '0.68rem', fontWeight: 600, color: 'var(--accent-blue)' }}>
                     {getCategoryLabel(project.category)}
                   </div>
                 </div>
@@ -223,60 +279,6 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
           })}
         </div>
 
-        {/* Banner highlighting 53+ public GitHub repositories */}
-        <div
-          className="glass-card"
-          style={{
-            marginTop: '20px',
-            padding: '16px 20px',
-            border: '1px solid var(--border-glass-bright)',
-            borderRadius: 'var(--radius-md)',
-            background: 'rgba(15, 23, 42, 0.85)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '16px',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <GitBranch size={22} color="#38bdf8" />
-            </div>
-            <div>
-              <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
-                {currentLang === 'fr' ? 'Découvrez plus de 53+ dépôts publics sur GitHub !' : 'Explore 53+ Public Repositories on GitHub!'}
-              </h4>
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
-                {currentLang === 'fr'
-                  ? 'Mohamed El Asri possède plus de 53 projets publics sur GitHub (Java Spring Boot, Microservices, PHP Laravel, DevOps, CI/CD).'
-                  : 'Mohamed El Asri maintains 53+ public projects on GitHub featuring Java Spring Boot, Microservices, PHP Laravel, and DevOps pipelines.'}
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={DEVELOPER_PROFILE.github}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              padding: '8px 16px',
-              background: 'var(--accent-blue)',
-              color: '#090d16',
-              borderRadius: 'var(--radius-md)',
-              textDecoration: 'none',
-              fontWeight: 700,
-              fontSize: '0.8rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            <span>{currentLang === 'fr' ? 'Voir tout sur GitHub' : 'View All on GitHub'}</span>
-            <ExternalLink size={14} />
-          </a>
-        </div>
-
         {/* Project Detail Modal Popup */}
         {selectedProject && (() => {
           const activeProj = getLocalizedProject(selectedProject);
@@ -288,7 +290,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: 'rgba(6, 9, 17, 0.85)',
+                background: 'rgba(18, 18, 18, 0.95)',
                 backdropFilter: 'blur(16px)',
                 padding: '24px',
                 display: 'flex',

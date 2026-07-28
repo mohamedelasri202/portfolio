@@ -50,7 +50,7 @@ export const TRANSLATIONS = {
     projectsData: {
       'smart-management': {
         title: 'SmartManagement — Moteur d\'Optimisation Logistique & Livraison',
-        shortDescription: '⭐ PROJET YOUCODE CAPSTONE ⭐ Système d\'optimisation logistique et de livraison calculant les coûts d\'itinéraire, l\'affectation des véhicules, l\'analyse Spring AI et la CI/CD GitHub Actions.',
+        shortDescription: 'PROJET YOUCODE CAPSTONE - Système d\'optimisation logistique et de livraison calculant les coûts d\'itinéraire, l\'affectation des véhicules, l\'analyse Spring AI et la CI/CD GitHub Actions.',
         fullDescription: 'SmartManagement est une application Full-Stack d\'optimisation logistique et de livraison développée avec Java Spring Boot, Spring AI, Angular, PostgreSQL et Docker. Conçue pour rationaliser le routage des commandes, l\'attribution des chauffeurs, la gestion de flotte et l\'estimation des coûts. Inclut des tests unitaires complets JUnit & Mockito et des pipelines CI/CD automatisés GitHub Actions.',
         highlights: [
           'Calcul intelligent d\'itinéraire de livraison et d\'affectation des véhicules',
@@ -61,7 +61,7 @@ export const TRANSLATIONS = {
       },
       'ecosim-2': {
         title: 'EcoSim 2.0 — Optimiseur d\'Itinéraires & Empreinte Écologique',
-        shortDescription: '⭐ PROJET EN VEDETTE ⭐ Application de cartographie web calculant les coûts de trajet et l\'empreinte environnementale via Spring AI, Angular & Google Maps API avec CI/CD GitHub Actions.',
+        shortDescription: 'PROJET EN VEDETTE - Application de cartographie web calculant les coûts de trajet et l\'empreinte environnementale via Spring AI, Angular & Google Maps API avec CI/CD GitHub Actions.',
         fullDescription: 'EcoSim 2.0 est une application complète de cartographie web conçue pour calculer les coûts de déplacement et évaluer l\'empreinte environnementale d\'itinéraires spécifiques. Utilise Java, Spring AI et Angular en back-end pour traiter intelligemment les données de parcours et générer des simulations écologiques précises. Inclut des conteneurs Docker, des tests JUnit/Mockito et des pipelines automatisés GitHub Actions.',
         highlights: [
           'Intégration Spring AI pour les simulations carbone et d\'itinéraires écologiques',
@@ -120,7 +120,7 @@ export const TRANSLATIONS = {
     },
     aboutMe: {
       role: 'Développeur Java, Angular & Full Stack',
-      status: '🟢 Disponible pour opportunités Java, Angular & Full Stack',
+      status: 'Disponible pour opportunités Java, Angular & Full Stack',
       hireMe: 'Me Recruter',
       viewCv: 'Consulter le CV',
       bioTab: 'Biographie & Synthèse',
@@ -259,7 +259,7 @@ export const TRANSLATIONS = {
     projectsData: {
       'smart-management': {
         title: 'SmartManagement — Delivery & Logistics Optimization Engine',
-        shortDescription: '⭐ FEATURED YOUCODE CAPSTONE ⭐ Delivery & logistics optimization system calculating route costs, vehicle dispatching, Spring AI analysis, and GitHub Actions CI/CD.',
+        shortDescription: 'YOUCODE CAPSTONE - Delivery & logistics optimization system calculating route costs, vehicle dispatching, Spring AI analysis, and GitHub Actions CI/CD.',
         fullDescription: 'SmartManagement is a full-stack delivery and logistics optimization application built with Java Spring Boot, Spring AI, Angular, PostgreSQL, and Docker. Designed to streamline order routing, driver allocation, fleet management, and cost estimation. Includes comprehensive JUnit & Mockito unit tests and automated GitHub Actions CI/CD pipelines.',
         highlights: [
           'Smart delivery route calculation & vehicle dispatching logic',
@@ -270,7 +270,7 @@ export const TRANSLATIONS = {
       },
       'ecosim-2': {
         title: 'EcoSim 2.0 — Dynamic Route & Ecological Optimizer',
-        shortDescription: '⭐ FEATURED PROJECT ⭐ Web mapping app calculating travel costs and environmental footprint via Spring AI, Angular & Google Maps API with CI/CD GitHub Actions.',
+        shortDescription: 'FEATURED PROJECT - Web mapping app calculating travel costs and environmental footprint via Spring AI, Angular & Google Maps API with CI/CD GitHub Actions.',
         fullDescription: 'EcoSim 2.0 is a comprehensive web mapping application designed to calculate travel costs and evaluate the environmental footprint of specific routes. Utilizes Java, Spring AI, and Angular on the backend to intelligently process route data and generate accurate ecological simulations. Features Docker containers, JUnit/Mockito testing, and automated GitHub Actions pipelines.',
         highlights: [
           'Spring AI Integration for ecological carbon & route simulations',
@@ -329,7 +329,7 @@ export const TRANSLATIONS = {
     },
     aboutMe: {
       role: 'Java, Angular & Full Stack Developer',
-      status: '🟢 Available for Java, Angular & Full Stack opportunities',
+      status: 'Available for Java, Angular & Full Stack opportunities',
       hireMe: 'Hire Me',
       viewCv: 'View Resume',
       bioTab: 'Biography & Overview',

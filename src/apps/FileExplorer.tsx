@@ -152,7 +152,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
             </div>
             <div>
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
-                {currentLang === 'fr' ? '🚀 Plus de 53+ Projets & Dépôts Publics sur GitHub' : '🚀 Over 53+ Public Repositories Available on GitHub'}
+                {currentLang === 'fr' ? 'Plus de 53 Projets & Dépôts Publics sur GitHub' : 'Over 53 Public Repositories Available on GitHub'}
               </h4>
               <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)' }}>
                 {currentLang === 'fr'

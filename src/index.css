@@ -99,3 +99,78 @@ body, html, #root {
 .animate-fade-in {
   animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Window Controls (Top Right Side) */
+.window-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.window-control-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.window-control-btn:hover {
+  transform: scale(1.12);
+  filter: brightness(1.15);
+}
+
+.window-control-btn:active {
+  transform: scale(0.92);
+}
+
+.control-minimize {
+  background-color: rgba(255, 189, 46, 0.9);
+  border-color: #dea123;
+  color: #4a3600;
+}
+
+.control-minimize:hover {
+  background-color: #ffcc00;
+  box-shadow: 0 0 12px rgba(255, 189, 46, 0.8);
+}
+
+.control-maximize {
+  background-color: rgba(39, 201, 63, 0.9);
+  border-color: #1aab29;
+  color: #053b0b;
+}
+
+.control-maximize:hover {
+  background-color: #28cd41;
+  box-shadow: 0 0 12px rgba(39, 201, 63, 0.8);
+}
+
+.control-close {
+  background-color: rgba(255, 95, 86, 0.9);
+  border-color: #e0443e;
+  color: #4d0502;
+}
+
+.control-close:hover {
+  background-color: #ff3b30;
+  box-shadow: 0 0 12px rgba(255, 95, 86, 0.8);
+}
+
+.window-control-btn svg {
+  opacity: 0.95;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.window-control-btn:hover svg {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+

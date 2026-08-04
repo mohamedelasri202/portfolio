@@ -133,81 +133,67 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
           padding: '0 14px',
           cursor: isDragging ? 'grabbing' : 'grab',
           userSelect: 'none',
+          position: 'relative',
         }}
       >
         {/* Left Side: Window Title */}
-        <div
-          style={{
-            fontSize: '0.82rem',
-            fontWeight: 600,
-            color: 'var(--text-secondary)',
-            letterSpacing: '0.3px',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {windowState.title}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 2 }}>
+          <div
+            style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--accent-blue)',
+              boxShadow: '0 0 8px var(--accent-blue)',
+            }}
+          />
+          <span
+            style={{
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              color: 'var(--text-secondary)',
+              letterSpacing: '0.3px',
+              userSelect: 'none',
+            }}
+          >
+            {windowState.title}
+          </span>
         </div>
 
-        {/* Right Side: 3 Control Buttons (Minimize, Maximize, Close) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Right Side: 3 Window Action Buttons (Reduce size, Wider page, Remove) */}
+        <div className="window-controls-group" style={{ zIndex: 2 }}>
+          {/* Reduce size (Minimize) */}
           <button
             onClick={(e) => { e.stopPropagation(); onMinimize(); }}
-            className="traffic-btn traffic-minimize"
-            title="Réduire / Minimize"
-            style={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              backgroundColor: '#ffbd2e',
-              border: '1px solid #dea123',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-            }}
+            className="window-control-btn control-minimize"
+            aria-label="Reduce size"
+            title="Reduce size / Réduire"
           >
-            <Minus size={7} color="#5c4300" style={{ opacity: 0.8 }} />
+            <Minus size={14} strokeWidth={2.5} />
           </button>
+
+          {/* Wider page (Maximize) */}
           <button
             onClick={(e) => { e.stopPropagation(); onMaximize(); }}
-            className="traffic-btn traffic-maximize"
-            title="Agrandir / Maximize"
-            style={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              backgroundColor: '#27c93f',
-              border: '1px solid #1aab29',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-            }}
+            className="window-control-btn control-maximize"
+            aria-label="Wider page"
+            title={windowState.isMaximized ? "Restore size" : "Wider page / Agrandir"}
           >
-            {windowState.isMaximized ? <Minimize2 size={6} color="#0d4d14" /> : <Maximize2 size={6} color="#0d4d14" />}
+            {windowState.isMaximized ? (
+              <Minimize2 size={13} strokeWidth={2.5} />
+            ) : (
+              <Maximize2 size={13} strokeWidth={2.5} />
+            )}
           </button>
+
+          {/* Remove (Close) */}
           <button
             onClick={(e) => { e.stopPropagation(); onClose(); }}
-            className="traffic-btn traffic-close"
-            title="Fermer / Close"
-            style={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              backgroundColor: '#ff5f56',
-              border: '1px solid #e0443e',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-            }}
+            className="window-control-btn control-close"
+            aria-label="Remove window"
+            title="Remove / Fermer"
           >
-            <X size={7} color="#4c0000" style={{ opacity: 0.8 }} />
+            <X size={14} strokeWidth={2.5} />
           </button>
         </div>
       </div>

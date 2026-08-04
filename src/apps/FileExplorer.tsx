@@ -10,7 +10,6 @@ import {
   GitBranch,
   CheckCircle,
   Layers,
-  Sparkles,
   Filter,
 } from 'lucide-react';
 

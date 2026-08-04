@@ -118,6 +118,7 @@ export const Desktop: React.FC<DesktopProps> = ({
       }}
     >
       <div
+        className="desktop-icons-container"
         style={{
           display: 'grid',
           gridAutoFlow: 'column',

@@ -107,7 +107,7 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
   return (
     <div
       onClick={onFocus}
-      className="glass-panel animate-fade-in"
+      className="glass-panel animate-fade-in window-frame-container"
       style={{
         ...frameStyle,
         display: 'flex',

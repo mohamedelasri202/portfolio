@@ -224,6 +224,7 @@ export const TopBar: React.FC<TopBarProps> = ({
         </div>
 
         <div
+          className="topbar-status-icons"
           onClick={() => {
             setShowControlCenter(!showControlCenter);
             setShowOsMenu(false);
@@ -243,7 +244,7 @@ export const TopBar: React.FC<TopBarProps> = ({
           <Battery size={15} color="#4ade80" />
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', color: 'var(--text-primary)', fontWeight: 500 }}>
+        <div className="topbar-date-time" style={{ display: 'flex', gap: '8px', color: 'var(--text-primary)', fontWeight: 500 }}>
           <span>{dateStr}</span>
           <span style={{ color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)' }}>{timeStr}</span>
         </div>

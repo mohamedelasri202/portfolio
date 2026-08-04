@@ -37,6 +37,7 @@ export const Dock: React.FC<DockProps> = ({ windows, activeAppId, currentLang = 
 
   return (
     <div
+      className="dock-container"
       style={{
         position: 'fixed',
         bottom: '16px',

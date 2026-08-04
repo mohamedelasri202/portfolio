@@ -74,62 +74,82 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', background: '#121212', color: 'var(--text-primary)', height: '100%' }}>
-      {/* Category Sidebar */}
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#121212', color: 'var(--text-primary)', height: '100%', overflow: 'hidden' }}>
+      {/* Top Carousel Category Filter Bar */}
       <div
+        className="category-carousel-bar"
         style={{
-          width: '210px',
-          background: 'rgba(24, 24, 27, 0.8)',
-          borderRight: '1px solid var(--border-glass)',
-          padding: '16px 12px',
+          background: 'rgba(24, 24, 27, 0.95)',
+          borderBottom: '1px solid var(--border-glass)',
+          padding: '10px 16px',
           display: 'flex',
-          flexDirection: 'column',
-          gap: '16px',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          flexShrink: 0,
         }}
       >
-        <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', paddingLeft: '8px' }}>
-          {t.directories}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto', flex: 1, paddingBottom: '2px' }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginRight: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Layers size={13} color="#38bdf8" />
+            <span>{t.directories}</span>
+          </div>
+
+          {categories.map((cat) => {
+            const isSelected = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  borderRadius: '20px',
+                  background: isSelected ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                  border: isSelected ? '1px solid var(--accent-blue)' : '1px solid var(--border-glass)',
+                  color: isSelected ? '#ffffff' : 'var(--text-secondary)',
+                  fontWeight: isSelected ? 600 : 400,
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.15s ease',
+                  boxShadow: isSelected ? '0 0 12px rgba(56, 189, 248, 0.25)' : 'none',
+                }}
+              >
+                <Folder size={14} color={isSelected ? '#38bdf8' : '#71717a'} />
+                <span>{cat.label}</span>
+              </button>
+            );
+          })}
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '8px 12px',
-                borderRadius: 'var(--radius-sm)',
-                background: selectedCategory === cat.id ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
-                border: 'none',
-                color: selectedCategory === cat.id ? 'var(--accent-blue)' : 'var(--text-secondary)',
-                fontWeight: selectedCategory === cat.id ? 600 : 400,
-                fontSize: '0.82rem',
-                cursor: 'pointer',
-                textAlign: 'left',
-                transition: 'all 0.15s ease',
-              }}
-            >
-              <Folder size={15} color={selectedCategory === cat.id ? '#38bdf8' : '#71717a'} />
-              <span>{cat.label}</span>
-            </button>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 'auto', padding: '12px', background: 'var(--bg-glass-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-glass)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent-blue)', marginBottom: '4px' }}>
-            <Sparkles size={13} /> {t.stats}
-          </div>
-          <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
-            {t.showing} {filteredProjects.length} {t.of} {PROJECTS.length} {t.projectsCount}
-          </div>
+        {/* Project Stats Pill */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '4px 10px',
+            background: 'var(--bg-glass-card)',
+            borderRadius: '16px',
+            border: '1px solid var(--border-glass)',
+            fontSize: '0.72rem',
+            color: 'var(--text-secondary)',
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
+          }}
+        >
+          <Sparkles size={12} color="#38bdf8" />
+          <span>{filteredProjects.length} / {PROJECTS.length} {t.projectsCount}</span>
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '16px 20px', overflowY: 'auto' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '16px 20px', overflowY: 'auto', position: 'relative' }}>
         {/* TOP PROMINENT BANNER: 53+ Public GitHub Repositories */}
         <div
           className="glass-card"

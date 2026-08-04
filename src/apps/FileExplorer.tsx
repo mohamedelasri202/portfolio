@@ -126,33 +126,13 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
             );
           })}
         </div>
-
-        {/* Project Stats Pill */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-            padding: '4px 10px',
-            background: 'var(--bg-glass-card)',
-            borderRadius: '16px',
-            border: '1px solid var(--border-glass)',
-            fontSize: '0.72rem',
-            color: 'var(--text-secondary)',
-            whiteSpace: 'nowrap',
-            flexShrink: 0,
-          }}
-        >
-          <Sparkles size={12} color="#38bdf8" />
-          <span>{filteredProjects.length} / {PROJECTS.length} {t.projectsCount}</span>
-        </div>
       </div>
 
       {/* Main Content Area */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '16px 20px', overflowY: 'auto', position: 'relative' }}>
         {/* TOP PROMINENT BANNER: 53+ Public GitHub Repositories */}
         <div
-          className="glass-card"
+          className="glass-card github-banner-card"
           style={{
             marginBottom: '16px',
             padding: '14px 18px',
@@ -166,7 +146,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
             boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div className="github-banner-info" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <GitBranch size={20} color="#38bdf8" />
             </div>
@@ -174,7 +154,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
                 {currentLang === 'fr' ? 'Plus de 53 Projets & Dépôts Publics sur GitHub' : 'Over 53 Public Repositories Available on GitHub'}
               </h4>
-              <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)' }}>
+              <p style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
                 {currentLang === 'fr'
                   ? 'Explorez l\'intégralité du code source : microservices Java Spring Boot, applications PHP / Laravel, tests TDD (JUnit, Mockito) et pipelines DevOps CI/CD.'
                   : 'Explore full open-source repositories: Java Spring Boot microservices, PHP / Laravel applications, TDD testing (JUnit, Mockito), and DevOps CI/CD pipelines.'}
@@ -186,6 +166,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
             href={DEVELOPER_PROFILE.github}
             target="_blank"
             rel="noreferrer"
+            className="github-banner-btn"
             style={{
               padding: '8px 16px',
               background: 'var(--accent-blue)',
@@ -196,6 +177,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ currentLang = 'fr' }
               fontSize: '0.8rem',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '6px',
               whiteSpace: 'nowrap',
               boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)',

@@ -31,6 +31,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#0b0f19', color: 'var(--text-primary)', height: '100%', overflowY: 'auto' }}>
       {/* Header Banner */}
       <div
+        className="about-header-banner"
         style={{
           padding: '24px 28px',
           background: '#0f172a',
@@ -55,7 +56,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
           }}
         />
 
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#fff' }}>{DEVELOPER_PROFILE.name}</h2>
             <span style={{ fontSize: '0.72rem', background: 'rgba(52, 211, 153, 0.15)', color: '#34d399', padding: '2px 10px', borderRadius: '12px', border: '1px solid rgba(52, 211, 153, 0.3)', fontWeight: 600 }}>
@@ -100,7 +101,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div className="about-header-actions" style={{ display: 'flex', gap: '8px' }}>
           <button
             onClick={() => onOpenApp('contact')}
             style={{
@@ -141,7 +142,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
       </div>
 
       {/* Tabs Bar */}
-      <div style={{ display: 'flex', borderBottom: '1px solid var(--border-glass)', background: 'rgba(15, 23, 42, 0.4)', padding: '0 24px' }}>
+      <div className="about-tabs-bar" style={{ display: 'flex', borderBottom: '1px solid var(--border-glass)', background: 'rgba(15, 23, 42, 0.4)', padding: '0 24px' }}>
         {[
           { id: 'profile', label: t.bioTab, icon: User },
           { id: 'skills', label: t.skillsTab, icon: Code },
@@ -178,7 +179,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
       <div style={{ padding: '24px', flex: 1 }}>
         {activeTab === 'profile' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+            <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
               {t.stats.map((stat, idx) => (
                 <div
                   key={idx}
@@ -229,7 +230,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Award size={16} color="#0284c7" /> {cat.category}
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                <div className="about-skills-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                   {cat.items.map((skill) => (
                     <div key={skill.name}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '6px' }}>
@@ -258,7 +259,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
         {activeTab === 'experience' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {t.experiences.map((exp, idx) => (
-              <div key={idx} className="glass-card" style={{ padding: '20px', border: '1px solid var(--border-glass)', display: 'flex', gap: '16px' }}>
+              <div key={idx} className="glass-card about-exp-card" style={{ padding: '20px', border: '1px solid var(--border-glass)', display: 'flex', gap: '16px' }}>
                 <div style={{ flexShrink: 0 }}>
                   <div style={{ padding: '6px 12px', borderRadius: '20px', background: 'rgba(56, 189, 248, 0.12)', color: 'var(--accent-blue)', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <Calendar size={13} /> {exp.period}

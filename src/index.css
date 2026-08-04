@@ -247,6 +247,46 @@ body, html, #root {
     height: 19px !important;
   }
 
+  /* 6. About Me Page Mobile-Only Responsiveness */
+  .about-header-banner {
+    flex-wrap: wrap !important;
+    padding: 14px 12px !important;
+    gap: 12px !important;
+  }
+
+  .about-header-actions {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .about-header-actions button {
+    flex: 1 !important;
+    justify-content: center !important;
+  }
+
+  .about-tabs-bar {
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: 0 12px !important;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .about-skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .about-exp-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
   /* 7. GitHub Top Banner Mobile Responsive Fixes */
   .github-banner-card {
     flex-direction: column !important;

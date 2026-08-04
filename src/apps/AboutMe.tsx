@@ -141,7 +141,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
         </div>
       </div>
 
-      {/* Tabs Bar */}
+      {/* Tabs / Carousel Navigation Bar */}
       <div className="about-tabs-bar" style={{ display: 'flex', borderBottom: '1px solid var(--border-glass)', background: 'rgba(15, 23, 42, 0.4)', padding: '0 24px' }}>
         {[
           { id: 'profile', label: t.bioTab, icon: User },
@@ -154,6 +154,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
+              className={`about-tab-pill ${isActive ? 'active' : 'inactive'}`}
               style={{
                 padding: '12px 18px',
                 background: 'none',
@@ -166,9 +167,10 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
+                whiteSpace: 'nowrap',
               }}
             >
-              <Icon size={14} />
+              <Icon size={14} color={isActive ? '#38bdf8' : '#71717a'} />
               <span>{tab.label}</span>
             </button>
           );

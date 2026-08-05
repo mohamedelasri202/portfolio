@@ -35,6 +35,7 @@ export const ResumeViewer: React.FC<ResumeViewerProps> = ({
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#090d16', color: 'var(--text-primary)', height: '100%' }}>
       {/* Top Document Header Bar */}
       <div
+        className="resume-header-bar"
         style={{
           height: '46px',
           background: 'rgba(15, 23, 42, 0.9)',

@@ -247,138 +247,161 @@ body, html, #root {
     height: 19px !important;
   }
 
-  /* 6. About Me Page Mobile Typography, Font Scaling & Compact Spacing */
+  /* 6. About Me Page Mobile Layout & Safe Spacing (max-width: 768px) */
   .about-header-banner {
     flex-wrap: wrap !important;
-    padding: 12px 10px !important;
-    gap: 10px !important;
+    padding: 18px 14px !important;
+    gap: 14px !important;
   }
 
   .about-header-banner img {
-    width: 60px !important;
-    height: 60px !important;
-    border-radius: 16px !important;
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 20px !important;
   }
 
   .about-header-banner h2 {
-    font-size: 1.15rem !important;
+    font-size: 1.25rem !important;
   }
 
   .about-header-banner p {
-    font-size: 0.78rem !important;
-  }
-
-  .about-header-banner div {
-    font-size: 0.72rem !important;
+    font-size: 0.84rem !important;
   }
 
   .about-header-actions {
     width: 100% !important;
     display: flex !important;
-    gap: 6px !important;
+    gap: 10px !important;
+    margin-top: 4px !important;
   }
 
   .about-header-actions button {
     flex: 1 !important;
     justify-content: center !important;
-    padding: 7px 10px !important;
-    font-size: 0.75rem !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
   }
 
-  /* Carousel Navigation Pill Bar (Mobile Only) */
+  /* Carousel Navigation Pill Bar (Sticky & Crystal Clear) */
   .about-tabs-bar {
-    background: rgba(24, 24, 27, 0.95) !important;
-    padding: 8px 10px !important;
-    gap: 6px !important;
+    display: flex !important;
     overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: rgba(15, 23, 42, 0.98) !important;
+    padding: 10px 16px !important;
+    gap: 8px !important;
     white-space: nowrap !important;
     align-items: center !important;
-    border-bottom: 1px solid var(--border-glass) !important;
+    border-bottom: 1px solid var(--border-glass-bright) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+    scrollbar-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-tabs-bar::-webkit-scrollbar {
+    display: none !important;
   }
 
   .about-tab-pill {
-    padding: 5px 12px !important;
-    border-radius: 16px !important;
-    font-size: 0.74rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 7px 14px !important;
+    border-radius: 24px !important;
+    font-size: 0.8rem !important;
     white-space: nowrap !important;
-    transition: all 0.15s ease !important;
+    transition: all 0.2s ease !important;
     flex-shrink: 0 !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
   }
 
   .about-tab-pill.active {
-    background: rgba(56, 189, 248, 0.2) !important;
-    border: 1px solid var(--accent-blue) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
-    font-weight: 600 !important;
+    background: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    color: #090d16 !important;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.45) !important;
+    font-weight: 700 !important;
+  }
+
+  .about-tab-pill.active svg {
+    color: #090d16 !important;
   }
 
   .about-tab-pill.inactive {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid var(--border-glass) !important;
-    color: var(--text-secondary) !important;
-    font-weight: 400 !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--border-glass-bright) !important;
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
   }
 
-  /* About Me Content Sections (Bio, Skills, Experience) Font & Spacing Adjustments */
+  .about-tab-pill.inactive:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--accent-blue) !important;
+  }
+
+  /* About Me Content Sections (Bio, Skills, Experience) - Safe Spacing & Comfortable Margins */
   .about-content-area {
-    padding: 12px 10px !important;
+    padding: 16px 14px !important;
   }
 
   .about-stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
+    gap: 12px !important;
   }
 
   .about-stats-grid .glass-card {
-    padding: 10px 8px !important;
+    padding: 14px 10px !important;
   }
 
   .about-stats-grid .stat-value {
-    font-size: 1.1rem !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 4px !important;
   }
 
   .about-stats-grid .stat-label {
-    font-size: 0.65rem !important;
+    font-size: 0.72rem !important;
   }
 
   .about-section-card {
-    padding: 12px 14px !important;
+    padding: 16px !important;
   }
 
   .about-section-card h3 {
-    font-size: 0.84rem !important;
-    margin-bottom: 8px !important;
+    font-size: 0.92rem !important;
+    margin-bottom: 10px !important;
   }
 
   .about-section-card p {
-    font-size: 0.78rem !important;
-    line-height: 1.55 !important;
+    font-size: 0.84rem !important;
+    line-height: 1.65 !important;
   }
 
   .about-skills-grid {
     grid-template-columns: 1fr !important;
-    gap: 8px !important;
+    gap: 14px !important;
   }
 
   .about-skills-grid div {
-    font-size: 0.74rem !important;
+    font-size: 0.8rem !important;
   }
 
   .about-exp-card {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 8px !important;
-    padding: 12px 14px !important;
+    gap: 10px !important;
+    padding: 16px !important;
   }
 
   .about-exp-card h4 {
-    font-size: 0.88rem !important;
+    font-size: 0.95rem !important;
   }
 
   .about-exp-card p {
-    font-size: 0.76rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.6 !important;
   }
 
   /* 7. GitHub Top Banner Mobile Responsive Fixes */
@@ -393,6 +416,14 @@ body, html, #root {
     width: 100% !important;
     justify-content: center !important;
     padding: 10px 14px !important;
+  }
+
+  /* 8. Resume Viewer Mobile Header */
+  .resume-header-bar {
+    height: auto !important;
+    padding: 10px 12px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
   }
 }
 

@@ -59,9 +59,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#fff' }}>{DEVELOPER_PROFILE.name}</h2>
-            <span style={{ fontSize: '0.72rem', background: 'rgba(52, 211, 153, 0.15)', color: '#34d399', padding: '2px 10px', borderRadius: '12px', border: '1px solid rgba(52, 211, 153, 0.3)', fontWeight: 600 }}>
-              {t.status}
-            </span>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'var(--accent-blue)', fontWeight: 500, marginBottom: '6px' }}>
             {t.role}
@@ -142,7 +139,27 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
       </div>
 
       {/* Tabs / Carousel Navigation Bar */}
-      <div className="about-tabs-bar" style={{ display: 'flex', borderBottom: '1px solid var(--border-glass)', background: 'rgba(15, 23, 42, 0.4)', padding: '0 24px' }}>
+      <div
+        className="about-tabs-bar"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          position: 'sticky',
+          top: 0,
+          zIndex: 20,
+          background: 'rgba(15, 23, 42, 0.98)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid var(--border-glass-bright)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
+          padding: '10px 16px',
+          boxSizing: 'border-box',
+          width: '100%',
+        }}
+      >
         {[
           { id: 'profile', label: t.bioTab, icon: User },
           { id: 'skills', label: t.skillsTab, icon: Code },
@@ -155,22 +172,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
               className={`about-tab-pill ${isActive ? 'active' : 'inactive'}`}
-              style={{
-                padding: '12px 18px',
-                background: 'none',
-                border: 'none',
-                borderBottom: isActive ? '2px solid var(--accent-blue)' : '2px solid transparent',
-                color: isActive ? 'var(--accent-blue)' : 'var(--text-secondary)',
-                fontWeight: isActive ? 600 : 400,
-                fontSize: '0.84rem',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                whiteSpace: 'nowrap',
-              }}
             >
-              <Icon size={14} color={isActive ? '#38bdf8' : '#71717a'} />
+              <Icon size={14} />
               <span>{tab.label}</span>
             </button>
           );

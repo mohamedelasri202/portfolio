@@ -178,7 +178,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
       </div>
 
       {/* Content Area */}
-      <div style={{ padding: '24px', flex: 1 }}>
+      <div className="about-content-area" style={{ padding: '24px', flex: 1 }}>
         {activeTab === 'profile' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
@@ -192,15 +192,15 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
                     border: '1px solid var(--border-glass)',
                   }}
                 >
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-blue)', marginBottom: '2px' }}>
+                  <div className="stat-value" style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-blue)', marginBottom: '2px' }}>
                     {stat.value}
                   </div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>{stat.label}</div>
+                  <div className="stat-label" style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>{stat.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="glass-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
+            <div className="glass-card about-section-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
               <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Sparkles size={16} color="#38bdf8" /> {t.philosophyTitle}
               </h3>
@@ -209,11 +209,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
               </p>
             </div>
 
-            <div className="glass-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
+            <div className="glass-card about-section-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
               <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Globe size={16} color="#34d399" /> {t.languagesTitle}
               </h3>
-              <div style={{ display: 'flex', gap: '20px', fontSize: '0.84rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', fontSize: '0.84rem' }}>
                 {t.languages.map((l) => (
                   <div key={l.name} style={{ display: 'flex', gap: '6px' }}>
                     <strong style={{ color: 'var(--accent-blue)' }}>{l.name}:</strong>
@@ -228,7 +228,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
         {activeTab === 'skills' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {SKILL_CATEGORIES.map((cat, idx) => (
-              <div key={idx} className="glass-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
+              <div key={idx} className="glass-card about-section-card" style={{ padding: '20px', border: '1px solid var(--border-glass)' }}>
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Award size={16} color="#0284c7" /> {cat.category}
                 </h3>
@@ -261,7 +261,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
         {activeTab === 'experience' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {t.experiences.map((exp, idx) => (
-              <div key={idx} className="glass-card about-exp-card" style={{ padding: '20px', border: '1px solid var(--border-glass)', display: 'flex', gap: '16px' }}>
+              <div key={idx} className="glass-card about-exp-card about-section-card" style={{ padding: '20px', border: '1px solid var(--border-glass)', display: 'flex', gap: '16px' }}>
                 <div style={{ flexShrink: 0 }}>
                   <div style={{ padding: '6px 12px', borderRadius: '20px', background: 'rgba(56, 189, 248, 0.12)', color: 'var(--accent-blue)', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <Calendar size={13} /> {exp.period}

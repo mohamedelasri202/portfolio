@@ -247,29 +247,49 @@ body, html, #root {
     height: 19px !important;
   }
 
-  /* 6. About Me Page Mobile Navigation Carousel & Section Cards */
+  /* 6. About Me Page Mobile Typography, Font Scaling & Compact Spacing */
   .about-header-banner {
     flex-wrap: wrap !important;
-    padding: 14px 12px !important;
-    gap: 12px !important;
+    padding: 12px 10px !important;
+    gap: 10px !important;
+  }
+
+  .about-header-banner img {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 16px !important;
+  }
+
+  .about-header-banner h2 {
+    font-size: 1.15rem !important;
+  }
+
+  .about-header-banner p {
+    font-size: 0.78rem !important;
+  }
+
+  .about-header-banner div {
+    font-size: 0.72rem !important;
   }
 
   .about-header-actions {
     width: 100% !important;
     display: flex !important;
-    gap: 8px !important;
+    gap: 6px !important;
   }
 
   .about-header-actions button {
     flex: 1 !important;
     justify-content: center !important;
+    padding: 7px 10px !important;
+    font-size: 0.75rem !important;
   }
 
   /* Carousel Navigation Pill Bar (Mobile Only) */
   .about-tabs-bar {
     background: rgba(24, 24, 27, 0.95) !important;
-    padding: 10px 14px !important;
-    gap: 8px !important;
+    padding: 8px 10px !important;
+    gap: 6px !important;
     overflow-x: auto !important;
     white-space: nowrap !important;
     align-items: center !important;
@@ -277,9 +297,9 @@ body, html, #root {
   }
 
   .about-tab-pill {
-    padding: 7px 16px !important;
-    border-radius: 20px !important;
-    font-size: 0.8rem !important;
+    padding: 5px 12px !important;
+    border-radius: 16px !important;
+    font-size: 0.74rem !important;
     white-space: nowrap !important;
     transition: all 0.15s ease !important;
     flex-shrink: 0 !important;
@@ -289,7 +309,7 @@ body, html, #root {
     background: rgba(56, 189, 248, 0.2) !important;
     border: 1px solid var(--accent-blue) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
     font-weight: 600 !important;
   }
 
@@ -300,22 +320,65 @@ body, html, #root {
     font-weight: 400 !important;
   }
 
-  /* About Me Content Sections (Bio, Skills, Experience) */
+  /* About Me Content Sections (Bio, Skills, Experience) Font & Spacing Adjustments */
+  .about-content-area {
+    padding: 12px 10px !important;
+  }
+
   .about-stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 8px !important;
+  }
+
+  .about-stats-grid .glass-card {
+    padding: 10px 8px !important;
+  }
+
+  .about-stats-grid .stat-value {
+    font-size: 1.1rem !important;
+  }
+
+  .about-stats-grid .stat-label {
+    font-size: 0.65rem !important;
+  }
+
+  .about-section-card {
+    padding: 12px 14px !important;
+  }
+
+  .about-section-card h3 {
+    font-size: 0.84rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .about-section-card p {
+    font-size: 0.78rem !important;
+    line-height: 1.55 !important;
   }
 
   .about-skills-grid {
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    gap: 8px !important;
+  }
+
+  .about-skills-grid div {
+    font-size: 0.74rem !important;
   }
 
   .about-exp-card {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px !important;
-    padding: 16px !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .about-exp-card h4 {
+    font-size: 0.88rem !important;
+  }
+
+  .about-exp-card p {
+    font-size: 0.76rem !important;
+    line-height: 1.5 !important;
   }
 
   /* 7. GitHub Top Banner Mobile Responsive Fixes */

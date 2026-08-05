@@ -425,6 +425,28 @@ body, html, #root {
     flex-wrap: wrap !important;
     gap: 10px !important;
   }
+
+  /* 9. Contact App Mobile Responsiveness */
+  .contact-app-container {
+    padding: 16px 14px !important;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .contact-direct-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .contact-direct-bar a {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 8px 12px !important;
+  }
 }
 
 

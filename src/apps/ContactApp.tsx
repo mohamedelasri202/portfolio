@@ -70,7 +70,7 @@ export const ContactApp: React.FC<ContactAppProps> = ({ currentLang = 'fr' }) =>
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', background: '#121212', color: 'var(--text-primary)', height: '100%', padding: '24px', overflowY: 'auto' }}>
+    <div className="contact-app-container" style={{ flex: 1, display: 'flex', background: '#121212', color: 'var(--text-primary)', height: '100%', padding: '24px', overflowY: 'auto' }}>
       <div style={{ flex: 1, maxWidth: '580px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div>
           <h2 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -128,7 +128,7 @@ export const ContactApp: React.FC<ContactAppProps> = ({ currentLang = 'fr' }) =>
         )}
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>{t.name}</label>
               <input
@@ -240,6 +240,7 @@ export const ContactApp: React.FC<ContactAppProps> = ({ currentLang = 'fr' }) =>
 
         {/* Direct Email & Phone Contact Bar */}
         <div
+          className="contact-direct-bar"
           style={{
             marginTop: '10px',
             padding: '14px 16px',

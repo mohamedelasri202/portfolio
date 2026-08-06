@@ -173,7 +173,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
               onClick={() => setActiveTab(tab.id as any)}
               className={`about-tab-pill ${isActive ? 'active' : 'inactive'}`}
             >
-              <Icon size={14} />
+              <Icon size={14} color={isActive ? '#38bdf8' : '#71717a'} />
               <span>{tab.label}</span>
             </button>
           );

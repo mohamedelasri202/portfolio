@@ -282,64 +282,85 @@ body, html, #root {
     font-size: 0.82rem !important;
   }
 
-  /* Carousel Navigation Pill Bar (Sticky & Crystal Clear) */
+  /* Carousel Navigation Pill Bar (Matching Projects Category Pill Style) */
   .about-tabs-bar {
     display: flex !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    background: rgba(15, 23, 42, 0.98) !important;
+    background: rgba(24, 24, 27, 0.95) !important;
     padding: 10px 16px !important;
     gap: 8px !important;
     white-space: nowrap !important;
     align-items: center !important;
-    border-bottom: 1px solid var(--border-glass-bright) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
     scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
   .about-tabs-bar::-webkit-scrollbar {
     display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .about-tab-pill {
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
-    padding: 7px 14px !important;
-    border-radius: 24px !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
     font-size: 0.8rem !important;
     white-space: nowrap !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.15s ease !important;
     flex-shrink: 0 !important;
     cursor: pointer !important;
-    border: 1px solid transparent !important;
   }
 
   .about-tab-pill.active {
-    background: var(--accent-blue) !important;
-    border-color: var(--accent-blue) !important;
-    color: #090d16 !important;
-    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.45) !important;
-    font-weight: 700 !important;
+    background: rgba(56, 189, 248, 0.2) !important;
+    border: 1px solid var(--accent-blue) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25) !important;
+    font-weight: 600 !important;
   }
 
   .about-tab-pill.active svg {
-    color: #090d16 !important;
+    color: #38bdf8 !important;
   }
 
   .about-tab-pill.inactive {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: var(--border-glass-bright) !important;
-    color: var(--text-primary) !important;
-    font-weight: 500 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+    box-shadow: none !important;
+  }
+
+  .about-tab-pill.inactive svg {
+    color: #71717a !important;
   }
 
   .about-tab-pill.inactive:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
-    border-color: var(--accent-blue) !important;
-    color: var(--accent-blue) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border-color: var(--border-glass-bright) !important;
+  }
+
+  /* Projects Category Carousel Bar - Hide Scrollbar Completely */
+  .category-carousel-bar,
+  .category-carousel-bar > div {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .category-carousel-bar::-webkit-scrollbar,
+  .category-carousel-bar > div::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   /* About Me Content Sections (Bio, Skills, Experience) - Safe Spacing & Comfortable Margins */

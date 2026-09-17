@@ -172,6 +172,24 @@ export const AboutMe: React.FC<AboutMeProps> = ({ currentLang = 'fr', onOpenApp 
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
               className={`about-tab-pill ${isActive ? 'active' : 'inactive'}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '20px',
+                background: isActive ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                border: isActive ? '1px solid var(--accent-blue)' : '1px solid var(--border-glass)',
+                color: isActive ? '#ffffff' : 'var(--text-secondary)',
+                fontWeight: isActive ? 600 : 400,
+                fontSize: '0.8rem',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.15s ease',
+                boxShadow: isActive ? '0 0 12px rgba(56, 189, 248, 0.25)' : 'none',
+                outline: 'none',
+                flexShrink: 0,
+              }}
             >
               <Icon size={14} color={isActive ? '#38bdf8' : '#71717a'} />
               <span>{tab.label}</span>

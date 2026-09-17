@@ -169,7 +169,7 @@ export const TerminalConsole: React.FC<TerminalConsoleProps> = ({ onOpenApp }) =
         <div key={idx} style={{ marginBottom: '12px' }}>
           {item.command !== 'welcome' && (
             <div style={{ display: 'flex', gap: '8px', color: '#94a3b8', marginBottom: '2px' }}>
-              <span style={{ color: '#38bdf8' }}>alex@web-os</span>
+              <span style={{ color: '#38bdf8' }}>mohamed@web-os</span>
               <span style={{ color: '#64748b' }}>:</span>
               <span style={{ color: '#818cf8' }}>~</span>
               <span style={{ color: '#94a3b8' }}>$</span>
@@ -181,7 +181,7 @@ export const TerminalConsole: React.FC<TerminalConsoleProps> = ({ onOpenApp }) =
       ))}
 
       <form onSubmit={handleCommandSubmit} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ color: '#38bdf8' }}>alex@web-os</span>
+        <span style={{ color: '#38bdf8' }}>mohamed@web-os</span>
         <span style={{ color: '#64748b' }}>:</span>
         <span style={{ color: '#818cf8' }}>~</span>
         <span style={{ color: '#94a3b8' }}>$</span>

@@ -16,8 +16,8 @@ export const ResumeViewer: React.FC<ResumeViewerProps> = ({
 
   const t = TRANSLATIONS[currentLang].resumeApp;
 
-  const pdfPath = selectedCvLang === 'fr' ? '/Mohamed_El_Asri_CV_FR.pdf' : '/Mohamed_El_Asri_CV_EN.pdf';
-  const fileName = selectedCvLang === 'fr' ? 'Mohamed_El_Asri_CV_FR.pdf' : 'Mohamed_El_Asri_CV_EN.pdf';
+  const pdfPath = selectedCvLang === 'fr' ? '/Mohamed el asri Fr.pdf' : '/Mohamed el asri en.pdf';
+  const fileName = selectedCvLang === 'fr' ? 'Mohamed el asri Fr.pdf  ' : 'Mohamed el asri en.pdf';
 
   const handleDownload = () => {
     const link = document.createElement('a');
